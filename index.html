@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spiritual Gifts &amp; DISC Assessment &mdash; First Church Bellevue</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --fcb-red:#c41e2a;--fcb-red-dark:#9e1821;--fcb-red-light:#e63946;
+  --fcb-red-glow:rgba(196,30,42,.08);--fcb-red-subtle:rgba(196,30,42,.05);
+  --fcb-bg:#f5f5f7;--fcb-surface:#ffffff;--fcb-card:#f0f0f2;--fcb-card-hover:#e8e8eb;
+  --fcb-grey-700:#f0f0f0;--fcb-grey-600:#ddd;--fcb-grey-500:#aaa;--fcb-grey-400:#888;--fcb-grey-300:#666;--fcb-grey-200:#444;--fcb-grey-100:#222;
+  --fcb-border:#ddd;--fcb-border-light:#ccc;
+  --fcb-white:#1a1a1a;--fcb-pure-white:#fff;
+  --fcb-text:#333;--fcb-text-dim:#555;--fcb-text-muted:#888;
+  --fcb-sage:#1e7e34;--fcb-sage-bg:rgba(30,126,52,.08);
+  --fcb-warn:#c4500a;--fcb-warn-bg:rgba(196,80,10,.07);
+  --fcb-info:#2563eb;--fcb-info-bg:rgba(37,99,235,.07);
+  --fcb-radius:10px;--fcb-radius-sm:6px;--fcb-radius-lg:14px;
+  --fcb-shadow:0 4px 20px rgba(0,0,0,.07);--fcb-shadow-sm:0 1px 6px rgba(0,0,0,.05);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;background:var(--fcb-bg);color:var(--fcb-text);line-height:1.65;-webkit-font-smoothing:antialiased}
+.fcb-assessment{
+  display:flex;
+  flex-direction:column;
+  max-width:820px;
+  margin:0 auto;
+  padding:16px;
+  min-height:100vh;
+}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;color:var(--fcb-white);line-height:1.3;font-weight:700}
+.fcb-assessment .header{text-align:center;padding:24px 20px 18px;margin-bottom:20px}
+.fcb-assessment .header-logo{height:56px;width:auto;margin-bottom:6px;display:block;margin-left:auto;margin-right:auto;filter:brightness(0)}
+.fcb-assessment .header-tagline{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:4px;color:var(--fcb-red);margin-top:8px}
+.fcb-assessment .header-divider{width:48px;height:3px;background:var(--fcb-red);margin:14px auto 0;border-radius:2px}
+.fcb-assessment .progress-container{margin-bottom:20px;position:sticky;top:0;z-index:100;background:var(--fcb-bg);padding:12px 0 8px;border-bottom:1px solid var(--fcb-border)}
+.fcb-assessment .progress-steps{display:flex;justify-content:space-between;margin-bottom:8px;font-size:.62rem;color:var(--fcb-text-muted);font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.fcb-assessment .progress-steps span.active{color:var(--fcb-red)}
+.fcb-assessment .progress-bar{height:3px;background:#e0e0e0;border-radius:2px;overflow:hidden}
+.fcb-assessment .progress-fill{height:100%;background:var(--fcb-red);border-radius:2px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+.fcb-assessment .progress-text{text-align:center;font-size:.7rem;color:var(--fcb-text-muted);margin-top:6px;font-weight:500}
+.fcb-assessment .step{display:none;animation:fcbFadeIn .4s ease}.fcb-assessment .step.active{display:block}
+@keyframes fcbFadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fcb-assessment .card{background:var(--fcb-surface);border-radius:var(--fcb-radius-lg);padding:32px;box-shadow:var(--fcb-shadow);border:1px solid var(--fcb-border);margin-bottom:20px}
+.fcb-assessment .card h2{font-size:1.35rem;margin-bottom:8px}.fcb-assessment .card h3{font-size:1.05rem;margin-bottom:12px}.fcb-assessment .card p{margin-bottom:14px;color:var(--fcb-text-dim);font-size:.9rem}
+.fcb-assessment .welcome-card{text-align:center;padding:44px 32px;position:relative;overflow:hidden}
+.fcb-assessment .welcome-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--fcb-red)}
+.fcb-assessment .welcome-card::after{content:'';position:absolute;top:-80px;right:-80px;width:220px;height:220px;background:radial-gradient(circle,rgba(196,30,42,.04) 0%,transparent 70%);border-radius:50%}
+.fcb-assessment .welcome-cross{width:56px;height:56px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;position:relative}
+.fcb-assessment .welcome-cross::before{content:'';position:absolute;width:3px;height:36px;background:var(--fcb-red);border-radius:2px}
+.fcb-assessment .welcome-cross::after{content:'';position:absolute;width:24px;height:3px;background:var(--fcb-red);border-radius:2px;margin-top:-6px}
+.fcb-assessment .welcome-card h2{font-size:1.6rem;margin-bottom:10px;letter-spacing:-.3px}
+.fcb-assessment .welcome-card>p{font-size:.9rem;max-width:540px;margin:0 auto 14px;color:var(--fcb-text-dim)}
+.fcb-assessment .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;text-align:left}
+.fcb-assessment .feature{display:flex;align-items:start;gap:12px;padding:16px;background:var(--fcb-card);border-radius:var(--fcb-radius);border:1px solid var(--fcb-border);transition:all .25s ease}
+.fcb-assessment .feature:hover{border-color:rgba(196,30,42,.3);transform:translateY(-1px)}
+.fcb-assessment .f-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;background:var(--fcb-red-subtle);border:1px solid rgba(196,30,42,.2)}
+.fcb-assessment .f-text{font-size:.8rem;line-height:1.5;color:var(--fcb-text-dim)}.fcb-assessment .f-text strong{display:block;color:var(--fcb-white);font-size:.82rem;margin-bottom:2px}
+.fcb-assessment .welcome-note{font-size:.78rem!important;color:var(--fcb-text-muted)!important;font-style:italic}
+.fcb-assessment .form-group{margin-bottom:20px}.fcb-assessment .form-group label{display:block;font-weight:600;color:var(--fcb-grey-200);margin-bottom:6px;font-size:.78rem;text-transform:uppercase;letter-spacing:.8px}
+.fcb-assessment .form-group input{width:100%;padding:13px 16px;border:2px solid var(--fcb-border-light);border-radius:var(--fcb-radius);font-size:.92rem;font-family:inherit;transition:all .2s;background:var(--fcb-card);color:var(--fcb-white)}
+.fcb-assessment .form-group input::placeholder{color:var(--fcb-text-muted)}.fcb-assessment .form-group input:focus{outline:none;border-color:var(--fcb-red);background:#fff;box-shadow:0 0 0 3px rgba(196,30,42,.1)}
+.fcb-assessment .section-intro{background:linear-gradient(135deg,var(--fcb-red-dark),var(--fcb-red));border-radius:var(--fcb-radius-lg);padding:24px;margin-bottom:18px;text-align:center;position:relative;overflow:hidden}
+.fcb-assessment .section-intro::before{content:'';position:absolute;top:0;right:0;width:180px;height:180px;background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);border-radius:50%;transform:translate(30%,-30%)}
+.fcb-assessment .section-intro h2{color:var(--fcb-pure-white);font-size:1.1rem;margin-bottom:4px;position:relative}.fcb-assessment .section-intro p{color:rgba(255,255,255,.75);font-size:.82rem;margin:0;position:relative}.fcb-assessment .section-intro strong{color:var(--fcb-pure-white)}
+.fcb-assessment .scale-legend{display:flex;justify-content:center;gap:8px;margin-top:10px;flex-wrap:wrap;position:relative}
+.fcb-assessment .scale-legend span{font-size:.65rem;background:rgba(255,255,255,.2);padding:3px 9px;border-radius:10px;color:rgba(255,255,255,.9);font-weight:500}
+.fcb-assessment .sg-question{padding:14px 0;border-bottom:1px solid var(--fcb-border)}.fcb-assessment .sg-question:last-child{border-bottom:none}
+.fcb-assessment .q-text{font-size:.88rem;color:var(--fcb-text);margin-bottom:8px;display:flex;gap:8px;line-height:1.5}
+.fcb-assessment .q-num{color:var(--fcb-red);font-weight:700;flex-shrink:0;min-width:26px;font-size:.82rem}
+.fcb-assessment .rating-scale{display:flex;gap:5px;flex-wrap:wrap}.fcb-assessment .rating-scale label{flex:1;min-width:48px;text-align:center;cursor:pointer}.fcb-assessment .rating-scale input{display:none}
+.fcb-assessment .pill{display:block;padding:7px 3px;border:2px solid var(--fcb-border-light);border-radius:var(--fcb-radius-sm);font-size:.78rem;font-weight:700;color:var(--fcb-text-muted);transition:all .2s;background:var(--fcb-card);line-height:1.2}
+.fcb-assessment .pill span{display:block;font-size:.58rem;font-weight:400;color:var(--fcb-grey-500);margin-top:2px}
+.fcb-assessment .rating-scale input:checked+.pill{border-color:var(--fcb-red);background:rgba(196,30,42,.1);color:var(--fcb-red)}
+.fcb-assessment .rating-scale label:hover .pill{border-color:rgba(196,30,42,.4)}
+.fcb-assessment .disc-group{padding:18px 0;border-bottom:1px solid var(--fcb-border)}.fcb-assessment .disc-group:last-child{border-bottom:none}
+.fcb-assessment .disc-group h4{font-family:'Montserrat',sans-serif;font-size:.72rem;color:var(--fcb-red);margin-bottom:10px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700}
+.fcb-assessment .disc-pair{display:flex;align-items:center;gap:12px;padding:7px 0}.fcb-assessment .word-label{flex:1;font-size:.88rem;color:var(--fcb-text)}
+.fcb-assessment .disc-choice{display:flex;gap:6px}.fcb-assessment .disc-choice label{cursor:pointer}.fcb-assessment .disc-choice input{display:none}
+.fcb-assessment .chip{display:inline-block;padding:5px 13px;border:2px solid var(--fcb-border-light);border-radius:20px;font-size:.7rem;font-weight:700;color:var(--fcb-text-muted);transition:all .2s;text-transform:uppercase;letter-spacing:.5px}
+.fcb-assessment .disc-choice input:checked+.chip.most{border-color:var(--fcb-sage);background:var(--fcb-sage-bg);color:var(--fcb-sage)}
+.fcb-assessment .disc-choice input:checked+.chip.least{border-color:var(--fcb-warn);background:var(--fcb-warn-bg);color:var(--fcb-warn)}
+.fcb-assessment .disc-choice label:hover .chip{border-color:var(--fcb-grey-500)}
+.fcb-assessment .btn-row{display:flex;gap:12px;margin-top:24px;justify-content:space-between}
+.fcb-assessment .btn{padding:13px 28px;border-radius:var(--fcb-radius-sm);font-family:inherit;font-size:.88rem;font-weight:700;cursor:pointer;border:none;transition:all .2s;letter-spacing:.3px}
+.fcb-assessment .btn-primary{background:var(--fcb-red);color:var(--fcb-pure-white);box-shadow:0 4px 16px rgba(196,30,42,.35)}
+.fcb-assessment .btn-primary:hover{background:var(--fcb-red-light);transform:translateY(-1px);box-shadow:0 6px 20px rgba(196,30,42,.45)}
+.fcb-assessment .btn-secondary{background:var(--fcb-card);color:var(--fcb-grey-200);border:2px solid var(--fcb-border-light)}.fcb-assessment .btn-secondary:hover{border-color:var(--fcb-grey-500)}
+.fcb-assessment .btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.fcb-assessment .validation-msg{color:var(--fcb-warn);font-size:.8rem;margin-top:8px;display:none;font-weight:500}.fcb-assessment .validation-msg.show{display:block}
+.fcb-assessment .unanswered{background:rgba(196,80,10,.05)!important;border-left:3px solid var(--fcb-warn)}
+.fcb-assessment .loading{text-align:center;padding:60px 20px}
+.fcb-assessment .spinner{width:44px;height:44px;border:3px solid var(--fcb-border);border-top-color:var(--fcb-red);border-radius:50%;animation:fcbSpin .8s linear infinite;margin:0 auto 16px}
+@keyframes fcbSpin{to{transform:rotate(360deg)}}
+.fcb-assessment .result-card{background:var(--fcb-surface);border-radius:var(--fcb-radius-lg);padding:24px;border:1px solid var(--fcb-border);margin-bottom:16px;box-shadow:var(--fcb-shadow-sm)}
+.fcb-assessment .result-card h3{margin-bottom:12px;font-size:1.1rem;display:flex;align-items:center;gap:8px}.fcb-assessment .result-card p{font-size:.88rem;line-height:1.7;color:var(--fcb-text-dim)}
+.fcb-assessment .gift-result{display:flex;align-items:center;gap:14px;padding:14px;background:var(--fcb-card);border-radius:var(--fcb-radius);margin-bottom:8px;border:1px solid var(--fcb-border)}
+.fcb-assessment .gift-rank{width:34px;height:34px;background:var(--fcb-red);color:var(--fcb-pure-white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}
+.fcb-assessment .gift-info{flex:1}.fcb-assessment .gift-name{font-weight:700;color:var(--fcb-white);font-size:.9rem}.fcb-assessment .gift-score-text{font-size:.72rem;color:var(--fcb-text-muted)}
+.fcb-assessment .gift-bar-container{flex:0 0 110px}.fcb-assessment .gift-bar{height:6px;background:var(--fcb-border);border-radius:3px;overflow:hidden}
+.fcb-assessment .gift-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--fcb-red-dark),var(--fcb-red));transition:width 1s ease}
+.fcb-assessment .disc-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.fcb-assessment .disc-box{padding:18px;border-radius:var(--fcb-radius);text-align:center;border:2px solid var(--fcb-border);background:var(--fcb-card)}
+.fcb-assessment .disc-box.highlight{border-color:var(--fcb-red);background:rgba(196,30,42,.06)}
+.fcb-assessment .disc-letter{font-size:1.8rem;font-weight:800}.fcb-assessment .disc-label{font-size:.72rem;color:var(--fcb-text-muted);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+.fcb-assessment .disc-score{font-size:1rem;font-weight:700;color:var(--fcb-white);margin-top:4px}
+.fcb-assessment .tag{display:inline-block;padding:3px 10px;background:var(--fcb-red-subtle);border:1px solid rgba(196,30,42,.15);border-radius:12px;font-size:.72rem;font-weight:600;color:var(--fcb-red);margin-right:4px;margin-bottom:4px}
+.fcb-assessment .gift-desc-block{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--fcb-border)}.fcb-assessment .gift-desc-block:last-child{border-bottom:none}
+.fcb-assessment .gift-desc-name{font-weight:700;color:var(--fcb-white);font-size:.92rem}
+.fcb-assessment .gift-desc-text{margin-top:6px;font-size:.86rem;color:var(--fcb-text-dim);line-height:1.7}
+.fcb-assessment .gift-desc-scripture{font-size:.75rem;color:var(--fcb-text-muted);margin-top:4px;font-style:italic}
+.fcb-assessment .email-status{text-align:center;padding:20px;border-radius:var(--fcb-radius);margin-top:16px;font-size:.85rem;line-height:1.6}
+.fcb-assessment .email-status.success{background:var(--fcb-sage-bg);color:var(--fcb-sage);border:1px solid rgba(74,158,92,.2)}
+.fcb-assessment .email-status.error{background:var(--fcb-warn-bg);color:var(--fcb-warn);border:1px solid rgba(196,122,90,.2)}
+.fcb-assessment .email-status.info{background:var(--fcb-info-bg);color:var(--fcb-info);border:1px solid rgba(90,142,196,.2)}
+@media(max-width:600px){
+  .fcb-assessment{padding:10px}
+  .fcb-assessment .card{padding:22px 16px}
+  .fcb-assessment .feature-grid{grid-template-columns:1fr}
+  .fcb-assessment .rating-scale{gap:3px}
+  .fcb-assessment .pill{padding:6px 2px;font-size:.72rem}
+  .fcb-assessment .pill span{display:none}
+  .fcb-assessment .header-logo{height:44px}
+  .fcb-assessment .welcome-card{padding:32px 20px}
+  .fcb-assessment .welcome-card h2{font-size:1.3rem}
+  .fcb-assessment .gift-bar-container{flex:0 0 70px}
+  .fcb-assessment .btn{padding:11px 18px;font-size:.82rem}
+  .fcb-assessment .section-intro{padding:20px 16px}
+}
+@media print{
+  .fcb-assessment .progress-container,.fcb-assessment .btn-row,.fcb-assessment .header{display:none}
+  .fcb-assessment .step{display:block!important}
+  .fcb-assessment{background:#fff;color:#222}
+  .fcb-assessment .card,.fcb-assessment .result-card{box-shadow:none;border:1px solid #ddd;background:#fff}
+  .fcb-assessment .gift-result,.fcb-assessment .disc-box,.fcb-assessment .feature{background:#f9f9f9;border-color:#ddd}
+}
+</style>
+</head>
+<body>
+<div class="fcb-assessment" id="fcb-assessment">
+  <div class="header">
+    <img src="https://dq5pwpg1q8ru0.cloudfront.net/2025/05/06/15/08/35/27e8ba2f-f08c-4b7a-b9b4-2941597ffbcd/6-Transparent-Negative.png" alt="First Church Bellevue" class="header-logo">
+    <div class="header-tagline">Seeking First the Kingdom of God</div>
+    <div class="header-divider"></div>
+  </div>
+  <div class="progress-container" id="fcb-progressContainer" style="display:none">
+    <div class="progress-steps" id="fcb-progressSteps"></div>
+    <div class="progress-bar"><div class="progress-fill" id="fcb-progressFill"></div></div>
+    <div class="progress-text" id="fcb-progressText"></div>
+  </div>
+  <div class="step active" data-step="0">
+    <div class="card welcome-card">
+      <div class="welcome-cross"></div>
+      <h2>Discover How God<br>Uniquely Made You</h2>
+      <p>This assessment combines 23 Spiritual Gifts with the DISC Personality Profile to help you understand your God-given motivations and how you can best serve in the body of Christ.</p>
+      <div class="feature-grid">
+        <div class="feature"><div class="f-icon">&#128214;</div><div class="f-text"><strong>Spiritual Gifts</strong>Identify your top supernatural motivations from 23 biblical gifts</div></div>
+        <div class="feature"><div class="f-icon">&#129517;</div><div class="f-text"><strong>DISC Personality</strong>Understand your behavioral style and how you relate to others</div></div>
+        <div class="feature"><div class="f-icon">&#128279;</div><div class="f-text"><strong>Combined Insights</strong>See how your personality and gifts work together</div></div>
+        <div class="feature"><div class="f-icon">&#9962;</div><div class="f-text"><strong>Ministry Fit</strong>Discover where you can serve most effectively at First Church</div></div>
+      </div>
+      <p class="welcome-note">This assessment takes approximately 25&ndash;35 minutes. Your results will be emailed to you upon completion.</p>
+      <div class="btn-row" style="justify-content:center"><button class="btn btn-primary" onclick="FCB.goToStep(1)">Begin Assessment &rarr;</button></div>
+    </div>
+  </div>
+  <div class="step" data-step="1">
+    <div class="card">
+      <h2>Before We Begin</h2>
+      <p>Please provide your name and email so we can send you your personalized results report.</p>
+      <div class="form-group"><label for="fcb-userName">Your Name</label><input type="text" id="fcb-userName" placeholder="First and Last Name" autocomplete="name"></div>
+      <div class="form-group"><label for="fcb-userEmail">Your Email</label><input type="email" id="fcb-userEmail" placeholder="you@example.com" autocomplete="email"></div>
+      <div class="validation-msg" id="fcb-infoValidation">Please fill in both your name and a valid email address.</div>
+      <div class="btn-row"><button class="btn btn-secondary" onclick="FCB.goToStep(0)">&larr; Back</button><button class="btn btn-primary" onclick="FCB.validateInfo()">Continue &rarr;</button></div>
+    </div>
+  </div>
+  <div class="step" data-step="2" id="fcb-sgStep1"></div>
+  <div class="step" data-step="3" id="fcb-sgStep2"></div>
+  <div class="step" data-step="4" id="fcb-sgStep3"></div>
+  <div class="step" data-step="5" id="fcb-sgStep4"></div>
+  <div class="step" data-step="6" id="fcb-discStep1"></div>
+  <div class="step" data-step="7" id="fcb-discStep2"></div>
+  <div class="step" data-step="8"><div class="card loading" id="fcb-processingCard"><div class="spinner"></div><h2>Calculating Your Results</h2><p>Analyzing your spiritual gifts and personality profile...</p></div></div>
+  <div class="step" data-step="9" id="fcb-resultsStep"></div>
+</div>
+
+<script>
+(function() {
+'use strict';
+
+var ROOT = document.getElementById('fcb-assessment');
+
+// Scoped query helpers
+function $(sel) { return ROOT.querySelector(sel); }
+function $$(sel) { return ROOT.querySelectorAll(sel); }
+
+// ============================================================
+// EMAILJS CONFIGURATION - Replace these values with your own
+// See setup guide at the bottom of this script block
+// ============================================================
+var EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+var EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+var EMAILJS_TEMPLATE_CONGREGANT = 'YOUR_TEMPLATE_ID';
+var EMAILJS_TEMPLATE_PASTOR     = 'YOUR_PASTOR_TEMPLATE_ID';
+var PASTOR_EMAIL = 'PASTOR_EMAIL_HERE';
+
+// Dynamic EmailJS SDK loader (no <head> access in Tithe.ly)
+var _emailjsReady = false;
+function loadEmailJS() {
+  if (typeof emailjs !== 'undefined') { _emailjsReady = true; return; }
+  if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') return; // Not configured yet
+  var s = document.createElement('script');
+  s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+  s.onload = function() {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+    _emailjsReady = true;
+  };
+  s.onerror = function() {
+    console.warn('Failed to load EmailJS SDK');
+  };
+  document.head.appendChild(s);
+}
+
+// ============================================================
+// DATA: Spiritual Gifts Questions (184)
+// ============================================================
+var sgQuestions = [
+"I tend to motivate others to get involved.",
+"I like starting new churches from scratch.",
+"I like to work with my hands to make things.",
+"I like to express myself through creative communication.",
+"I can tell when people are insincere.",
+"Teaching the facts without practical application is really lacking.",
+"I love to hear messages about salvation.",
+"God has given me unusual assurances of His control.",
+"People misunderstand my financial interests.",
+"I believe strongly in healing.",
+"I will do the little things no one else wants to do.",
+"I love to provide my home as a haven or meeting place.",
+"I really enjoy praying for others.",
+"I can interpret what people say in tongues.",
+"My study of the Scriptures gives me unique insights.",
+"I would rather be THE leader, than just one of the leaders.",
+"I tend to be super sensitive to sad stories.",
+"I believe God often performs miracles in this day and age.",
+"I tend to be irritated when people sin.",
+"I tend to get frustrated when the church is not growing.",
+"I speak in tongues often.",
+"Education is very important to me.",
+"I tend to make wise decisions and choices.",
+"I can do a lot of things at once.",
+"I would be willing to move elsewhere to start a church.",
+"I like to design things with my hands.",
+"I enjoy communicating through drama.",
+"I can tell when others teach or share inaccurate info.",
+"I like to share practical steps of action.",
+"Leading people to Christ is so exciting.",
+"I always believe and see how God works in our lives.",
+"I tend to give money freely where needed most.",
+"People say I helped them to be healed.",
+"Solving problems is my main concern.",
+"I tend to make total strangers feel at home.",
+"I tend to pray for long periods of time.",
+"People ask me to interpret what others say in tongues.",
+"I have received information which could only have come from God.",
+"I feel frustrated when it looks like no one is in charge.",
+"I spend a lot of time helping others feel better.",
+"God has used me to perform His miracles.",
+"I discern something is evil, before others do.",
+"I enjoy leading discipleship type Bible studies.",
+"People say I encourage through my tongues speaking.",
+"Preparation to speak or teach is absolutely necessary.",
+"I seem to be able to help others make right decisions.",
+"I do my best work under pressure.",
+"I adapt well to other cultures and groups.",
+"I enjoy creating hand-crafted things.",
+"I respond best to dramatic presentations.",
+"I am able to differentiate between true and false needs.",
+"I teach topical, rather than verse-by-verse lessons.",
+"I am very concerned about lost souls.",
+"Trusting God for the impossible comes easy to me.",
+"I tend to make wise investments.",
+"I have a passion to see people healed.",
+"I prefer serving others, rather than being served.",
+"I like to invite people in need to stay in my home.",
+"I like to intercede in prayer for others.",
+"I like to interpret what people speak in tongues.",
+"I often receive a word or impression about special needs in group meetings.",
+"I know where I'm headed and am driven to bring others.",
+"I can't say, \"No\" to legitimate needs.",
+"I have the unusual ability to see miracles happen.",
+"I research to share truth, rather than just to study.",
+"I seem to look for spiritual lessons in whatever happens.",
+"I often feel compelled to speak in tongues.",
+"I like to explain why something is true.",
+"I easily see the difference between truth and error.",
+"I tend to take charge when no one else does.",
+"I would rather start a new church, than anything else.",
+"I consider myself a craftsman or craftswoman.",
+"I like to see truth taught through drama.",
+"I am able to read between the lines of what others say.",
+"I tend to use biblical illustrations to explain things.",
+"Worldwide evangelism really excites me.",
+"I'm comfortable around people who like to pray a lot.",
+"Financial accountability is extremely important.",
+"I really get excited about healing.",
+"I tend to take on a lot of opportunities to serve people.",
+"I look for opportunities to use my home to help others.",
+"I feel strongly about praying for others.",
+"I seem to understand when people speak in tongues.",
+"I receive supernatural insights from God's Word in how to pray for a person or situation.",
+"I often volunteer to take charge of difficult projects.",
+"Some people think I'm too sensitive.",
+"People say that I can perform miracles.",
+"I like to proclaim truth I have received from God.",
+"I often seek to help individuals grow in Christ.",
+"God encourages others through my speaking in tongues.",
+"It bothers me to hear incorrect statements and teaching.",
+"People often seek me out for wise advice.",
+"I like impossible challenges.",
+"I get real excited about new mission works worldwide.",
+"I seek opportunities to work with my hands.",
+"People say I'm good at acting.",
+"I am able to easily detect unspiritual things.",
+"I really enjoy encouraging others.",
+"I enjoy asking people to make decisions for Christ.",
+"I want people to pray more and increase their faith.",
+"I tend to discern true financial needs.",
+"Many people say I have the gift of healing.",
+"I don't like being up-front or leading a group.",
+"My home is always open to anyone or for any group.",
+"People say I'm a \"prayer warrior.\"",
+"I feel compelled to interpret what others say in tongues.",
+"I get impressions and insights from God which I share with others.",
+"I am driven to move forward even when others aren't.",
+"When others hurt, I feel compelled to help.",
+"Miracles often happen when I'm nearby.",
+"I can be stubborn and difficult to convince.",
+"I prefer being a spiritual leader.",
+"I enjoy hearing people speak in a heavenly language.",
+"I tend to prepare too much material.",
+"I like to solve problems through the wisdom of the Word.",
+"I like to organize people to accomplish great tasks.",
+"I prefer serving in a cross-cultural ministry.",
+"I would rather work with my hands than anything else.",
+"I like to teach lessons through role playing.",
+"I am a good judge of what is good and evil.",
+"Practical application is what teaching is all about.",
+"I like to lead people to Christ with my testimony.",
+"I have strong assurances that God answers prayer.",
+"I like to take care of financial needs in a timely manner.",
+"I'm committed to helping people be healed.",
+"I tend to do much more than I'm told to do.",
+"A neat home is not as important as its availability.",
+"People seek me out to pray for their serious problems.",
+"God has enabled me to interpret tongues speaking.",
+"I have received sudden impressions about what the Holy Spirit wants to do in a meeting or situation.",
+"People often say I am a good leader.",
+"I try to come across as loving and caring.",
+"I believe God wants everyone to experience miracles.",
+"I tend to know why people do what they do.",
+"Leading groups to spiritual maturity is most appealing.",
+"God encourages others through my speaking in tongues.",
+"Studying the Scriptures is my passion.",
+"I believe wisdom is more important than faith or knowledge.",
+"I would rather speak out, than just let something pass.",
+"I am attracted to ministries that start new churches.",
+"People say I'm real handy at fixing things.",
+"I like to develop new ways to communicate truth.",
+"People say that I often have just the right advice.",
+"I often feel compelled to share advice.",
+"I can share the gospel with total strangers.",
+"I tend to judge people by how much faith they have.",
+"I'm concerned about meeting financial/physical needs.",
+"My prayers for healing others have unusual power.",
+"Working behind the scenes gives me much pleasure.",
+"I feel church members need to be more hospitable.",
+"I think intercessory prayer is most important.",
+"I understand and can interpret the heavenly language.",
+"I believe God reveals to me the root cause of someone's problem or illness.",
+"It bothers me when people sit around and do nothing.",
+"I tend to volunteer to help the less fortunate.",
+"God uses me to help people through miracles.",
+"Confronting someone with sin in their life is not hard.",
+"People seek me out to become spiritually stronger.",
+"I believe God speaks through me in different tongues.",
+"I search for new insights as I study.",
+"People are often amazed at how much wisdom I have.",
+"I delegate responsibilities to accomplish tasks.",
+"I believe an apostle today is God's pioneer and authority.",
+"I like designing and making things from scratch.",
+"I think truth should be taught in many different ways.",
+"I seem to have a unique discernment in many areas.",
+"I really enjoy counseling others.",
+"Sharing my faith is most important to me.",
+"People say I have a tremendous amount of faith.",
+"Being slothful, \"lazy\" in business is a sin.",
+"I seek to lay hands on people and pray for their healing.",
+"I would rather do a job myself, rather than delegate it.",
+"I believe hospitality is one of the most important things.",
+"I believe prayer is the greatest power.",
+"Leaders often rely on me to interpret tongue speaking.",
+"I have been able to help others because God gave me insights into their problems.",
+"I believe God wants me to be a strong leader.",
+"Solving problems is my main concern.",
+"I tend to believe more than others in miracles.",
+"Opposition doesn't bother me as much, just sitting still.",
+"I like to help others to get involved in ministry.",
+"God often uses me to teach or prophecy in tongues.",
+"Digging deep into the Word of God is a priority in life.",
+"People often say I demonstrate lots of unusual wisdom."
+];
+
+// ============================================================
+// DATA: Gift Names & Columns (A-W)
+// ============================================================
+var giftMap = [
+{key:'A',name:'Administration / Ruling',word:'Initiator',scripture:'Rom. 12:8; 1 Cor. 12:28; Acts 6:1-7'},
+{key:'B',name:'Apostleship / Pioneering',word:'Pioneer / Visionary',scripture:'Eph. 4:7,11; 1 Cor. 9:1-2; Ga. 2:8-10; 1 Cor. 12:28-29'},
+{key:'C',name:'Craftsmanship',word:'Handy',scripture:'Ex. 31:3; 35:31-35; Acts 9:36-39; 2 Kings 22:5-6'},
+{key:'D',name:'Creative Communication',word:'Actors or Actresses',scripture:'Psa. 150:3-5; 2 Sam. 6:14-15; Mark 4:2, 33'},
+{key:'E',name:'Discernment',word:'Listeners / Perceiver',scripture:'1 Cor. 12:7,10b; 1 Cor. 2:14'},
+{key:'F',name:'Encouraging / Exhorting',word:'Encourager',scripture:'Rom. 12:6,8; Acts 11:23-24; Heb. 10:24-25'},
+{key:'G',name:'Evangelism',word:'Dynamic',scripture:'Eph. 4:7,11; Acts 8:26-40; Luke 19:1-10'},
+{key:'H',name:'Faith',word:'Optimist',scripture:'1 Cor. 12:7,9; Matt. 8:5-16; Heb. 11:1'},
+{key:'I',name:'Giving',word:'Steward',scripture:'Rom. 12:6, 8b; Acts 4:32-35; 2 Cor. 9:7-8'},
+{key:'J',name:'Healing',word:'Restorer',scripture:'1 Cor. 12:9, 28, 30; Acts 3:1-16; Mark 2:1-12'},
+{key:'K',name:'Serving / Ministry',word:'Selfless',scripture:'1 Cor. 12:28; Act. 6:1-3; Rom. 16:1-2'},
+{key:'L',name:'Hospitality',word:'Sociable',scripture:'1 Pet. 4:9-10; Acts 16:13-15; Luke 14:12-14'},
+{key:'M',name:'Intercession',word:'Prayer Warrior',scripture:'Rom. 8:26-27; John 17:9-26; 1 Tim. 2:1-2; Col. 1:9-12, 4:12'},
+{key:'N',name:'Interpretation',word:'Translator',scripture:'1 Cor. 12:10; 14:5; 14:26-28'},
+{key:'O',name:'Knowledge',word:'Divine Insights',scripture:'1 Cor. 12:7-8; 8:1b-2; Mark 2:6-8; John 1:45-50'},
+{key:'P',name:'Leadership',word:'Dreamer',scripture:'Rom. 12:6,8c; John 13:13-17; Heb. 13:17'},
+{key:'Q',name:'Showing Mercy',word:'Caring',scripture:'Rom. 12:6,8d; Matt. 5:7'},
+{key:'R',name:'Miracles',word:'Powerful',scripture:'1 Cor. 12:10, 28-29; John 2:1-11; Luke 5:1-11'},
+{key:'S',name:'Prophecy / Perceiving',word:'Bold',scripture:'Eph. 4:7,11; 1 Cor. 14:1,3; 2 Pet 1:19-21'},
+{key:'T',name:'Pastor / Shepherding',word:'Discipler',scripture:'Eph. 4:11; 1 Pet. 5:2-4'},
+{key:'U',name:'Tongues',word:'Conduit',scripture:'1 Cor. 12:10, 28-30, 13:1, 14:1-33; Acts 2:1-11'},
+{key:'V',name:'Teaching',word:'In-depth',scripture:'Rom. 12:6,7b; Col. 3:16; Jam. 3:1; 2; 2 Tim. 2:2'},
+{key:'W',name:'Wisdom',word:'Perceptive',scripture:'1 Cor. 12:7-8; Jam. 3:13-18'}
+];
+
+// Gift descriptions (brief for congregant report)
+var giftDescBrief = {
+A:"You have a strong ability to organize, delegate, and lead others toward accomplishing tasks. You see the big picture and can design systems to get things done.",
+B:"You have a pioneering spirit and vision for starting new works. You cross boundaries and are willing to go where others may not, demonstrating contagious enthusiasm.",
+C:"You are gifted with your hands to design, build, and create things. You are task-oriented and love producing quality work that blesses others.",
+D:"You love to express truth creatively through drama, art, and presentations. You communicate biblical truths in imaginative and memorable ways.",
+E:"You have an unusual ability to see through confusion and discern right from wrong. You distinguish between good and evil, truth and error with clarity.",
+F:"You are compelled to encourage, counsel, and lift others up. You share practical steps of action and bless others with a strong sense of concern.",
+G:"You feel compelled to share the gospel and win souls for Christ. Your concern for the lost motivates you to always be ready to share your faith.",
+H:"You demonstrate an unusual ability to trust God in the most adverse circumstances. You encourage others to stretch their faith and act upon God's promises.",
+I:"You have genuine financial insights and a heart for wise stewardship. You are sensitive to how money is spent and give to where it truly needs to go.",
+J:"You have the divine power to pray and see people healed. You emphasize the healing power of God and have faith that God can heal anyone.",
+K:"You love to help others and serve behind the scenes. You find yourself doing what no one else wants to do, adapting to many challenges with a servant's heart.",
+L:"You have a special interest in opening your home for food, fellowship, and meeting needs. You love to make people feel welcome and comfortable.",
+M:"You have a passion to pray and intercede on behalf of others. You faithfully petition God on a daily basis and believe strongly in the power of prayer.",
+N:"You have the ability to translate what others speak in tongues, helping to edify and encourage others through understanding of these supernatural messages.",
+O:"You receive supernatural revelation of specific truth from the Word of God. You bring insights that change lives, not just impress others.",
+P:"You demonstrate an unusual ability to influence and motivate others. You are result-oriented, driven, and able to challenge and direct others toward goals.",
+Q:"You demonstrate genuine sensitivity to suffering. You are compelled to help people who hurt, showing tender loving care when it is needed most.",
+R:"You have the unusual enablement to authenticate miracles. You express tremendous faith in God's power and point people to Christ through supernatural events.",
+S:"You have a straight-forward attitude toward truth. You like to share truth boldly, pointing the way and declaring what God has revealed to you.",
+T:"You enjoy leading others in serving the Lord through team participation. You emphasize unity, maturity, and building up the body of Christ.",
+U:"You have the divine ability to speak in other languages. You edify others through supernatural messages and express deep devotion to God.",
+V:"You prefer explaining why things are true. You love to study, research, and present truth in clear, understandable ways that transform lives.",
+W:"You have a unique ability to apply knowledge practically. You combine what you know with reverence for God to influence others with wise counsel."
+};
+
+// Full gift descriptions for pastor report
+var giftDescFull = {
+A:"The Gift of Administration/Ruling is seen in those who either like to organize or delegate to others. Compelled by a strong sense of duty, they like to find things for people to do. They see the big picture and work to keep everyone on track. Not always personally organized, they prefer delegating tasks. They simply like to evaluate what needs to be done, then design systems or give responsibilities to those who can get the job done. They are gifted to forge forward as a group.\n\nIn a word: Initiator\nOveruse: Expects too much\nGoal: Lead by example, not manipulation.\nScripture: Rom. 12:8; 1 Cor. 12:28; Acts 6:1-7",
+B:"Unlike Apostles of old, Apostles today have a clear vision to start new ministries from place to place. They make great church planters and strong leaders. They have a self/spirited appointed calling to reach out where others may never dare. They demonstrate tremendous abilities in influencing others to follow. They also have contagious and industrious enthusiasm to cross cultural, geographical, and economic boundaries for Christ.\n\nIn a word: Pioneer / Visionary\nOveruse: Pushes too hard / Too much authority\nGoal: Build deeper and stronger.\nScripture: Eph. 4:7,11; 1 Cor. 9:1-2; Ga. 2:8-10; 1 Cor. 12:28-29",
+C:"The Gift of Craftsmanship is evident in those who are very handy at making things. They have the unusual ability to design and assemble things. They tend to be more task-oriented and love to create things that are helpful to others. Those with this gift can be tremendous blessings to those who need special help in putting things together or making things from scratch.\n\nIn a word: Handy\nOveruse: Too focused on work, and not on others\nGoal: Create things to bless others, not glorify self.\nScripture: Ex. 31:3; 35:31-35; Acts 9:36-39; 2 Kings 22:5-6",
+D:"The Gift of Creative Communication is obvious in those who enjoy performing or directing drama presentations. They love to express themselves and teach lessons through role playing and skits. They are very creative and able to act out specific feelings to communicate biblical truths. They make great reflections of THE Light of the World.\n\nIn a word: Actors or Actresses\nOveruse: Dramatic expression that leads to self glory\nGoal: Teach lessons, rather than focus on talent.\nScripture: Psa. 150:3-5; 2 Sam. 6:14-15; Mark 4:2, 33",
+E:"The Gift of Discernment is evident in those who have unusual ability to see through confusion and pinpoint problems and solutions. They are concerned about right and wrong. They tend to listen well and hear the little and seemingly insignificant things that shed light on a specific need. They distinguish between good and evil, truth and error.\n\nIn a word: Listeners / Perceiver\nOveruse: Too critical or too quick to share\nGoal: Get more information before responding.\nScripture: 1 Cor. 12:7,10b; 1 Cor. 2:14",
+F:"Christians with the Gift of Encouraging/Exhorting find themselves lifting others up. They are compelled to give advice. As counselors, they seem to often have steps of action. They clarify truth and tell you what to do with truth. They bless others with a strong sense of concern. They are sought out as counselors. They enjoy using their communication skills to share specific insights.\n\nIn a word: Encourager\nOveruse: Talks too much\nGoal: Apply truth, don't create expectations.\nScripture: Rom. 12:6,8; Acts 11:23-24; Heb. 10:24-25",
+G:"Christians with the Gift of Evangelism feel compelled to win souls. They seem to have the ability to communicate the gospel very effectively. Their concern for witnessing to a lost and dying world is evident. They desire to be involved in ministries to reach people for Christ. Missions and outreach are important to them.\n\nIn a word: Dynamic\nOveruse: Zeal\nGoal: Build disciples, not statistics.\nScripture: Eph. 4:7,11; Acts 8:26-40; Luke 19:1-10",
+H:"The Gift of Faith is often found in those with the obvious ability to trust God in the most adverse circumstances. Those with the Gift of Faith have a deeper dependence upon God and His Word. They tend to stretch the faith and commitments of others. They encourage others to act upon their faith and challenge everyone to increase their faith.\n\nIn a word: Optimist\nOveruse: Overly trusting and often proud of their faith\nGoal: Combine faith with works / Learn to be patient with others.\nScripture: 1 Cor. 12:7,9; Matt. 8:5-16; Heb. 11:1",
+I:"Givers tend to be seriously concerned about financial matters. They are sensitive to how money is spent and saved. Those with the Gift of Giving don't always give to the wheel that squeaks the loudest, but to the wheel that truly needs the most grease. They serve especially well on boards responsible for maintaining budgets. They tend to be conscientious and conservative.\n\nIn a word: Steward\nOveruse: The power of money\nGoal: Sincere stewardship, not financial harassment.\nScripture: Rom. 12:6, 8b; Acts 4:32-35; 2 Cor. 9:7-8",
+J:"The Gift of Healing is evident in those with the divine power to pray and see people healed. They have unusual faith that God can heal anyone. They emphasize the healing power of God. They should focus more on the faith of those needing healings, rather than their own faith to heal. They authenticate healing messages from God's Word through healings.\n\nIn a word: Restorer\nOveruse: Teaching everyone should be healed\nGoal: Focus on God's power and not their gift to heal.\nScripture: 1 Cor. 12:9, 28, 30; Acts 3:1-16; Mark 2:1-12",
+K:"When you think of Christians who serve faithfully behind the scenes, you think of those with the Gift of Serving/Ministry/Helps. They love to help others. Motivated by a strong sense of need, they feel like 'someone has to do it.' Caring and concerned for others, they find themselves doing what no one else likes to do. They tend to do whatever called for. Flexible, they adapt to many challenges.\n\nIn a word: Selfless\nOveruse: Takes too much time\nGoal: Be a servant, not a martyr.\nScripture: 1 Cor. 12:28; Act. 6:1-3; Rom. 16:1-2",
+L:"The Gift of Hospitality is that special interest in opening one's home for food and fellowship, or to just provide a place to stay for someone in need. Those with this gift seem to always be ready and willing to invite guests over or offer their home for a place to meet for any occasion. They love to provide refreshments or prepare meals for individuals or groups.\n\nIn a word: Sociable\nOveruse: Take on too much / Get worn out\nGoal: Provide fellowship without sacrificing family time.\nScripture: 1 Pet. 4:9-10; Acts 16:13-15; Luke 14:12-14",
+M:"The Gift of Intercession is found in those with a passion to pray. They feel compelled to intercede on behalf of those in distress. They faithfully petition God on a daily basis for specific needs. They recognize spiritual battles are often won on one's knees. 'Much prayer, much power' is their motto.\n\nIn a word: Prayer Warrior\nOveruse: Neglect other practical needs and responsibilities\nGoal: Put 'feet on their prayers' and also do what needs to be done.\nScripture: Rom. 8:26-27; John 17:9-26; 1 Tim. 2:1-2; Col. 1:9-12, 4:12",
+N:"The Gift of Interpretation is found in those who can translate what others speak in tongues. They have the unusual ability to glorify God through their miraculous interpretation of what would be otherwise unknown. Those with this gift often edify and encourage others through their explanation of what is spoken in other languages.\n\nIn a word: Translator\nOveruse: Use translations to push own agenda\nGoal: Clarify what is spoken in tongues and build believers.\nScripture: 1 Cor. 12:10; 14:5; 14:26-28",
+O:"The Gift of the Word Knowledge is a supernatural revelation of certain facts in the mind of God, which gives instant and specific information that one would have no other way of knowing, except from God. It is the ability to receive specific truth from the Word of God. Sometimes they may overwhelm others and bring more attention to their Word of Knowledge, rather than the purpose of sharing what God has revealed to them.\n\nIn a word: Divine Insights\nOveruse: Make others feel inferior or ignorant\nGoal: Change lives, rather than impress others.\nScripture: 1 Cor. 12:7-8; 8:1b-2; Mark 2:6-8; John 1:45-50",
+P:"The Gift of Leadership, much like the Gift of Administration/Ruling, is evident in those who demonstrate an unusual ability to influence others. They seem to have an independent determination to challenge and direct others toward a specific goal. They stand out and take stands. Those with this Gift tend to be multi-talented excelling with their people and tasks skills. Often result-oriented and driven.\n\nIn a word: Dreamer\nOveruse: Too demanding and impatient\nGoal: Lead by example and willingness to be a servant.\nScripture: Rom. 12:6,8c; John 13:13-17; Heb. 13:17",
+Q:"Christians with the Gift of Showing Mercy demonstrate genuine sensitivity to suffering. They are compelled to help people reduce pain. They are concerned more with the person, than the reason for the suffering. Focusing on the feelings of those who hurt, they desire to minister by 'being there' when people really need them. Sympathizing and/or empathizing are their specialties.\n\nIn a word: Caring\nOveruse: Too sensitive\nGoal: Wise insights, not foolish responses.\nScripture: Rom. 12:6,8d; Matt. 5:7",
+R:"The Gift of Miracles is obvious in those who have the unusual enablement to authenticate through miracles a specific ministry or message of God. God's supernatural intervention through those with this gift will always glorify God, rather than themselves. They express and demonstrate tremendous faith in God's power. They should always explain and teach that God is the source of every good supernatural event.\n\nIn a word: Powerful\nOveruse: Expecting God to always perform miracles\nGoal: Trust God, with or without the miracle.\nScripture: 1 Cor. 12:10, 28-29; John 2:1-11; Luke 5:1-11",
+S:"Prophets today are not exactly like prophets of old. Today people with the Gift of Prophecy seem to have the same seriousness and straight forward attitude toward truth. They like to share truth, regardless of what anyone thinks. Prophets today are motivated to confront anyone with what they believe is right. When controlled by the Holy Spirit, this gift is a powerful tool to reprove, rebuke and exhort others.\n\nIn a word: Bold\nOveruse: Fighter\nGoal: Declare truth, don't divide Christians.\nScripture: Eph. 4:7,11; 1 Cor. 14:1,3; 2 Pet 1:19-21",
+T:"The Gift of Pastor/Shepherding is obvious in those who really enjoy leading others in serving the Lord. Unlike the Gift of Serving/Ministry/Helps, this gift involves the motivation to lead. Pastor/Shepherds are compelled to encourage others to work together for the body's sake. Influencing others to work together is important. Stressing a need for team participation, they emphasize harmony.\n\nIn a word: Discipler\nOveruse: Takes Advantage of Others' Trust\nGoal: Strong leadership, not manipulating the flock.\nScripture: Eph. 4:11; 1 Pet. 5:2-4",
+U:"The Gift of Tongues is found in those with the divine ability to speak other languages. They have the unusual endowment to speak in a language that is not understood by most everyone present. They often express spontaneously or in response to what is being preached, sung, or worshipped. They edify others through their supernatural message often with words too deep for the mind to comprehend.\n\nIn a word: Conduit\nOveruse: Disruptive, overbearing, and confusing\nGoal: Edify and encourage believers through positive messages.\nScripture: 1 Cor. 12:10, 28-30, 13:1, 14:1-33; Acts 2:1-11",
+V:"Christians with the Gift of Teaching prefer explaining why things are true. While the prophet declares truth, the teacher explains the reasons why it is true. Interested in research, they like to dig into seemingly insignificant details. They enjoy presenting what they discover. Often negligent of the needs of others, they press toward a deeper understanding. They love to study.\n\nIn a word: In-depth\nOveruse: Digs too deep\nGoal: Reveal truth, don't exhaust it.\nScripture: Rom. 12:6,7b; Col. 3:16; Jam. 3:1; 2; 2 Tim. 2:2",
+W:"The Gift of Wisdom is the unique ability to use knowledge in a practical way. Those with this gift like to combine what they know with a serious reverence of God in order to influence others. They sometimes battle with pride and an attitude of superiority. They need to be consistently humble and exhibit a sense of quietness and slowness before responding.\n\nIn a word: Perceptive\nOveruse: Speak down to people\nGoal: Consistently trust and ask God for wisdom.\nScripture: 1 Cor. 12:7-8; Jam. 3:13-18"
+};
+
+// ============================================================
+// DATA: DISC Word Pairs (96 items in 24 groups)
+// ============================================================
+var discPairs = [
+// [groupIndex, itemIndex, "word description", M-letter, L-letter]
+[0,0,"Kind, Nice, Caring","S","B"],
+[0,1,"Proper, Formal","B","C"],
+[0,2,"Demanding, Asserting","D","D"],
+[0,3,"Outgoing, Active","I","I"],
+[1,0,"Playful, Fun-loving","B","I"],
+[1,1,"Firm, Strong","D","B"],
+[1,2,"Law-abiding, Conscientious","C","C"],
+[1,3,"Gentle, Soft, Humble","S","S"],
+[2,0,"Bold, Daring","B","D"],
+[2,1,"Delightful, Pleasant","I","B"],
+[2,2,"Loyal, True Blue","S","S"],
+[2,3,"Calculating, Analytical","C","C"],
+[3,0,"Conservative, Inflexible","C","B"],
+[3,1,"Trusting, Gullible, Open","B","I"],
+[3,2,"Peaceful, Calm","S","S"],
+[3,3,"Convinced, Cocky","D","D"],
+[4,0,"Decisive, Sure, Certain","D","D"],
+[4,1,"Friendly, Cordial, Popular","I","I"],
+[4,2,"Careful, Cautious","C","C"],
+[4,3,"Obedient, Submissive","S","B"],
+[5,0,"Promoting, Encouraging","I","I"],
+[5,1,"Straight, Conforming","C","B"],
+[5,2,"Risk-taking, Courageous","D","D"],
+[5,3,"Pleasing, Good-natured","B","S"],
+[6,0,"Considerate, Thoughtful","S","B"],
+[6,1,"Forceful, Strong-willed","D","D"],
+[6,2,"Hyper, Energetic","I","I"],
+[6,3,"Perfectionist, Precise","C","C"],
+[7,0,"Contented, Satisfied","S","S"],
+[7,1,"Compliant, Goes by book","B","C"],
+[7,2,"Brave, Adventurous","D","D"],
+[7,3,"Enthusiastic, Influencing","B","I"],
+[8,0,"Smooth talker, Articulate","B","I"],
+[8,1,"Loving, Sincere, Honest","B","S"],
+[8,2,"Persistent, Relentless","D","D"],
+[8,3,"Right, Correct","C","C"],
+[9,0,"Positive, Optimistic","D","D"],
+[9,1,"Entertaining, Clowning","I","I"],
+[9,2,"Shy, Mild","B","S"],
+[9,3,"Competent, Does Right","B","C"],
+[10,0,"Contemplative, Thinker","C","B"],
+[10,1,"Diplomatic, Peacemaking","S","S"],
+[10,2,"Admirable, Elegant","I","B"],
+[10,3,"Winner, Competitive","B","D"],
+[11,0,"Joyful, Jovial","B","I"],
+[11,1,"Flexible, Adaptable, Agreeable","S","S"],
+[11,2,"Ambitious, Goes for it","D","D"],
+[11,3,"Deep, Intense","B","B"],
+[12,0,"Steady, Dependable","S","S"],
+[12,1,"Talkative, Verbal","I","I"],
+[12,2,"Challenging, Motivating","D","B"],
+[12,3,"Accurate, Exact","C","B"],
+[13,0,"Stable, Balanced","S","S"],
+[13,1,"Confident, Self-reliant","D","B"],
+[13,2,"Perceptive, Sees clearly","B","C"],
+[13,3,"Animated, Expressive","I","I"],
+[14,0,"Controlling, Taking charge","D","D"],
+[14,1,"Merciful, Sensitive","S","S"],
+[14,2,"Pondering, Wondering","C","C"],
+[14,3,"Persuading, Convincing","I","B"],
+[15,0,"Sociable, Interactive","I","B"],
+[15,1,"Serious, Unwavering","D","D"],
+[15,2,"Sweet, Tender, Compassionate","S","S"],
+[15,3,"Guarded, Masked, Protective","C","B"],
+[16,0,"Powerful, Unconquerable","D","D"],
+[16,1,"Merry, Cheerful","I","I"],
+[16,2,"Generous, Giving","S","B"],
+[16,3,"Preparing, Researching","C","C"],
+[17,0,"Timid, Soft-spoken","B","S"],
+[17,1,"Systematic, Follows plan","B","C"],
+[17,2,"Industrious, Hard working","D","D"],
+[17,3,"Smiling, Happy","I","I"],
+[18,0,"Inquisitive, Questioning","C","C"],
+[18,1,"Tolerant, Patient","S","S"],
+[18,2,"Driving, Determined","D","D"],
+[18,3,"Dynamic, Impressing","I","I"],
+[19,0,"Serving, Sacrificing","B","S"],
+[19,1,"Sharp, Appealing","I","B"],
+[19,2,"Direct, To the point","D","D"],
+[19,3,"Original, Creative","C","C"],
+[20,0,"Peppy, Playful","I","I"],
+[20,1,"Devoted, Dedicated","B","D"],
+[20,2,"Courteous, Polite","S","S"],
+[20,3,"Strict, Unbending","C","B"],
+[21,0,"Outspoken, Opinionated","D","D"],
+[21,1,"Inducing, Charming","I","I"],
+[21,2,"Inventive, Imaginative","B","C"],
+[21,3,"Hospitable, Enjoys company","S","S"],
+[22,0,"Zealous, Eager","D","D"],
+[22,1,"Quiet, Reserved","B","B"],
+[22,2,"Organized, Orderly","C","C"],
+[22,3,"Exciting, Spirited","I","I"],
+[23,0,"Faithful, Consistent","B","C"],
+[23,1,"Responsive, Reacting","I","I"],
+[23,2,"Helpful, Assisting","S","S"],
+[23,3,"Bottom line, Straight-forward","D","D"]
+];
+
+// ============================================================
+// DATA: DISC Type Descriptions
+// ============================================================
+var discTypes = {
+D:{name:"Dominant",full:"D: Determined Doers",desc:"Active/Task-oriented. Dominating, directing, driving, demanding, determined, decisive, doing. You are motivated by challenge and control. You like to take charge, solve problems, and get results. Under pressure you may become dictatorial or demanding.",biblical:"Biblical Examples: Paul & Sarah",advice:"Be gentle (James 3:17). Control your feelings and actions (Eph. 4:26). Focus on one thing at a time (Phil. 3:13). Have a servant's attitude (Gal. 5:13)."},
+I:{name:"Inspiring",full:"I: Inspirational Influencers",desc:"Active/People-oriented. Inspiring, influencing, inducing, impressing, interactive, interested in people. You are motivated by recognition and approval. You love to talk, have fun, and inspire others. Under pressure you may become emotional or irrational.",biblical:"Biblical Examples: Peter & Ruth",advice:"Be humble (James 4:10). Be quick to hear, slow to speak (James 1:19). Be more organized (1 Cor. 14:40). Be patient (1 Cor. 13:4-7)."},
+S:{name:"Steady",full:"S: Steady Specialists",desc:"Passive/People-oriented. Submissive, steady, stable, shy, security-oriented, servant, specialist. You are motivated by stability and support. You enjoy helping others, being part of a team, and working in a stable environment. Under pressure you may become subservient or withdrawn.",biblical:"Biblical Examples: Moses & Hannah",advice:"Be bold and strong (Joshua 1:6). Be confident and fearless (2 Tim. 1:7). Be more enthusiastic (Col. 3:23). Be assertive when needed (Eph. 6:10)."},
+C:{name:"Cautious",full:"C: Cautious Competent Types",desc:"Passive/Task-oriented. Competent, compliant, cautious, calculating, careful, contemplative. You are motivated by quality and correctness. You prefer accuracy, clear expectations, and doing things right the first time. Under pressure you may become moody or critical.",biblical:"Biblical Examples: Thomas & Esther",advice:"Be more positive (Phil. 4:8). Don't worry (Phil. 4:6-7). Be joyful (Gal. 5:22). Be more tolerant and trusting (Prov. 3:5-6)."}
+};
+
+// ============================================================
+// STATE
+// ============================================================
+var currentStep = 0;
+var totalSteps = 10;
+var sgAnswers = {};
+var discAnswers = {}; // {groupIdx: {most: itemIdx, least: itemIdx}}
+var _results = null;
+var STORAGE_KEY = 'fcb-assessment-progress';
+
+// ============================================================
+// AUTO-SAVE: localStorage persistence
+// ============================================================
+var _saveTimer = null;
+function saveProgress() {
+  clearTimeout(_saveTimer);
+  _saveTimer = setTimeout(function() {
+    try {
+      var data = {
+        sgAnswers: sgAnswers,
+        discAnswers: discAnswers,
+        userName: document.getElementById('fcb-userName').value,
+        userEmail: document.getElementById('fcb-userEmail').value,
+        currentStep: currentStep,
+        timestamp: Date.now()
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch(e) { /* storage unavailable - fail silently */ }
+  }, 300);
+}
+
+function clearSavedProgress() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+}
+
+function checkSavedProgress() {
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return false;
+    var saved = JSON.parse(raw);
+    if (!saved || !saved.timestamp) return false;
+    var age = Date.now() - saved.timestamp;
+    if (age > 7 * 24 * 60 * 60 * 1000) {
+      clearSavedProgress();
+      return false;
+    }
+    return saved;
+  } catch(e) { return false; }
+}
+
+function restoreProgress(saved) {
+  // Restore state objects
+  Object.keys(saved.sgAnswers || {}).forEach(function(k) {
+    sgAnswers[k] = saved.sgAnswers[k];
+  });
+  Object.keys(saved.discAnswers || {}).forEach(function(k) {
+    discAnswers[k] = saved.discAnswers[k];
+  });
+
+  // Restore name/email fields
+  if (saved.userName) document.getElementById('fcb-userName').value = saved.userName;
+  if (saved.userEmail) document.getElementById('fcb-userEmail').value = saved.userEmail;
+
+  // Restore radio button states for spiritual gifts
+  Object.keys(sgAnswers).forEach(function(qNum) {
+    var val = sgAnswers[qNum];
+    var radio = ROOT.querySelector('input[name="fcb-sg' + qNum + '"][value="' + val + '"]');
+    if (radio) radio.checked = true;
+  });
+
+  // Restore radio button states for DISC
+  Object.keys(discAnswers).forEach(function(g) {
+    var group = discAnswers[g];
+    if (group.most !== undefined) {
+      var mRadio = ROOT.querySelector('input[name="fcb-disc_m_' + g + '"][value="' + group.most + '"]');
+      if (mRadio) mRadio.checked = true;
+    }
+    if (group.least !== undefined) {
+      var lRadio = ROOT.querySelector('input[name="fcb-disc_l_' + g + '"][value="' + group.least + '"]');
+      if (lRadio) lRadio.checked = true;
+    }
+  });
+
+  // Navigate to saved step
+  goToStep(saved.currentStep || 0);
+}
+
+function showResumePrompt(saved) {
+  var stepLabels = {0:'Welcome',1:'Personal Info',2:'Gifts Part 1',3:'Gifts Part 2',4:'Gifts Part 3',5:'Gifts Part 4',6:'DISC Part 1',7:'DISC Part 2'};
+  var answeredCount = Object.keys(saved.sgAnswers || {}).length;
+  var discCount = Object.keys(saved.discAnswers || {}).filter(function(k) {
+    var g = saved.discAnswers[k];
+    return g && g.most !== undefined && g.least !== undefined;
+  }).length;
+  var savedDate = new Date(saved.timestamp);
+  var dateStr = savedDate.toLocaleDateString() + ' at ' + savedDate.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+
+  var resumeHtml = '<div class="card" style="text-align:center;padding:28px;border:2px solid var(--fcb-red);margin-bottom:16px">' +
+    '<h3 style="margin-bottom:8px">Welcome Back!</h3>' +
+    '<p style="margin-bottom:12px">You have saved progress from <strong>' + dateStr + '</strong>.</p>' +
+    '<p style="font-size:.82rem;color:var(--fcb-text-muted);margin-bottom:16px">' +
+      'Step: ' + (stepLabels[saved.currentStep] || 'Step ' + saved.currentStep) +
+      ' &bull; ' + answeredCount + '/184 gifts answered' +
+      ' &bull; ' + discCount + '/24 DISC groups completed' +
+    '</p>' +
+    '<div class="btn-row" style="justify-content:center">' +
+      '<button class="btn btn-primary" onclick="FCB.resumeProgress()">Resume Where I Left Off</button>' +
+      '<button class="btn btn-secondary" onclick="FCB.startFresh()">Start Over</button>' +
+    '</div>' +
+  '</div>';
+
+  // Insert the resume prompt before the welcome card
+  var welcomeStep = $('[data-step="0"]');
+  var resumeDiv = document.createElement('div');
+  resumeDiv.id = 'fcb-resumePrompt';
+  resumeDiv.innerHTML = resumeHtml;
+  welcomeStep.insertBefore(resumeDiv, welcomeStep.firstChild);
+}
+
+function resumeProgress() {
+  var saved = checkSavedProgress();
+  if (saved) restoreProgress(saved);
+  var prompt = document.getElementById('fcb-resumePrompt');
+  if (prompt) prompt.remove();
+}
+
+function startFresh() {
+  clearSavedProgress();
+  var prompt = document.getElementById('fcb-resumePrompt');
+  if (prompt) prompt.remove();
+}
+
+// ============================================================
+// INIT: Build Question UI
+// ============================================================
+function init() {
+  loadEmailJS();
+  buildSpiritualGiftsSteps();
+  buildDISCSteps();
+  updateProgress();
+
+  // Check for saved progress
+  var saved = checkSavedProgress();
+  if (saved) {
+    showResumePrompt(saved);
+  }
+}
+
+function buildSpiritualGiftsSteps() {
+  var chunks = [
+    [0, 46],   // Step 2: Q1-46
+    [46, 92],  // Step 3: Q47-92
+    [92, 138], // Step 4: Q93-138
+    [138, 184] // Step 5: Q139-184
+  ];
+  var stepNames = ['fcb-sgStep1','fcb-sgStep2','fcb-sgStep3','fcb-sgStep4'];
+
+  chunks.forEach(function(range, idx) {
+    var container = document.getElementById(stepNames[idx]);
+    var stepNum = idx + 2;
+    var partNum = idx + 1;
+
+    var html = '<div class="section-intro">' +
+      '<h2>Spiritual Gifts Assessment \u2014 Part ' + partNum + ' of 4</h2>' +
+      '<p>Rate how true each statement is about you</p>' +
+      '<div class="scale-legend">' +
+        '<span>5 = Almost Always</span><span>4 = Often</span><span>3 = Sometimes</span><span>2 = Seldom</span><span>1 = Almost Never</span>' +
+      '</div>' +
+    '</div><div class="card">';
+
+    for (var i = range[0]; i < range[1]; i++) {
+      var qNum = i + 1;
+      html += '<div class="sg-question" id="fcb-sgq' + qNum + '">' +
+        '<div class="q-text"><span class="q-num">' + qNum + '.</span>' + sgQuestions[i] + '</div>' +
+        '<div class="rating-scale">';
+      var labels = {5:'Almost Always',4:'Often',3:'Sometimes',2:'Seldom',1:'Almost Never'};
+      [5,4,3,2,1].forEach(function(v) {
+        html += '<label><input type="radio" name="fcb-sg' + qNum + '" value="' + v + '" onchange="FCB.sgAnswer(' + qNum + ',' + v + ')"><span class="pill">' + v + '<span>' + labels[v] + '</span></span></label>';
+      });
+      html += '</div></div>';
+    }
+
+    html += '</div>' +
+    '<div class="validation-msg" id="fcb-sgVal' + partNum + '">Please answer all questions before continuing.</div>' +
+    '<div class="btn-row">' +
+      '<button class="btn btn-secondary" onclick="FCB.goToStep(' + (stepNum - 1) + ')">&larr; Back</button>' +
+      '<button class="btn btn-primary" onclick="FCB.validateSGStep(' + partNum + ',' + range[0] + ',' + range[1] + ',' + (stepNum + 1) + ')">Continue &rarr;</button>' +
+    '</div>';
+
+    container.innerHTML = html;
+  });
+}
+
+function buildDISCSteps() {
+  var groups1 = []; // Groups 0-11
+  var groups2 = []; // Groups 12-23
+
+  for (var g = 0; g < 24; g++) {
+    var items = discPairs.filter(function(p) { return p[0] === g; });
+    if (g < 12) groups1.push({g: g, items: items});
+    else groups2.push({g: g, items: items});
+  }
+
+  [
+    {el:'fcb-discStep1', groups:groups1, part:1, stepNum:6, nextStep:7},
+    {el:'fcb-discStep2', groups:groups2, part:2, stepNum:7, nextStep:8}
+  ].forEach(function(cfg) {
+    var container = document.getElementById(cfg.el);
+    var html = '<div class="section-intro">' +
+      '<h2>DISC Personality Assessment \u2014 Part ' + cfg.part + ' of 2</h2>' +
+      '<p>For each group, select one word that is <strong>MOST</strong> like you and one that is <strong>LEAST</strong> like you</p>' +
+    '</div><div class="card">';
+
+    cfg.groups.forEach(function(grp) {
+      html += '<div class="disc-group" id="fcb-discg' + grp.g + '"><h4>Group ' + (grp.g + 1) + '</h4>';
+      grp.items.forEach(function(item) {
+        html += '<div class="disc-pair">' +
+          '<span class="word-label">' + item[2] + '</span>' +
+          '<div class="disc-choice">' +
+            '<label><input type="radio" name="fcb-disc_m_' + grp.g + '" value="' + item[1] + '" onchange="FCB.discSelect(' + grp.g + ',\'most\',' + item[1] + ')"><span class="chip most">Most</span></label>' +
+            '<label><input type="radio" name="fcb-disc_l_' + grp.g + '" value="' + item[1] + '" onchange="FCB.discSelect(' + grp.g + ',\'least\',' + item[1] + ')"><span class="chip least">Least</span></label>' +
+          '</div>' +
+        '</div>';
+      });
+      html += '</div>';
+    });
+
+    html += '</div>' +
+    '<div class="validation-msg" id="fcb-discVal' + cfg.part + '">Please select both a Most and Least for every group before continuing.</div>' +
+    '<div class="btn-row">' +
+      '<button class="btn btn-secondary" onclick="FCB.goToStep(' + (cfg.stepNum - 1) + ')">&larr; Back</button>' +
+      '<button class="btn btn-primary" onclick="FCB.validateDISCStep(' + cfg.part + ',' + cfg.groups[0].g + ',' + cfg.groups[cfg.groups.length-1].g + ',' + cfg.nextStep + ')">' + (cfg.nextStep === 8 ? 'See My Results &rarr;' : 'Continue &rarr;') + '</button>' +
+    '</div>';
+
+    container.innerHTML = html;
+  });
+}
+
+// ============================================================
+// NAVIGATION & VALIDATION
+// ============================================================
+function goToStep(step) {
+  $$('.step').forEach(function(s) { s.classList.remove('active'); });
+  var target = $('[data-step="' + step + '"]');
+  if (target) target.classList.add('active');
+  currentStep = step;
+  updateProgress();
+  window.scrollTo({top: 0, behavior: 'smooth'});
+
+  if (step === 8) {
+    setTimeout(function() { calculateAndShowResults(); }, 1500);
+  }
+}
+
+function updateProgress() {
+  var prog = document.getElementById('fcb-progressContainer');
+  if (currentStep === 0 || currentStep === 9) {
+    prog.style.display = 'none';
+    return;
+  }
+  prog.style.display = 'block';
+
+  var labels = ['Info','Gifts 1','Gifts 2','Gifts 3','Gifts 4','DISC 1','DISC 2','Results'];
+  var stepsHtml = labels.map(function(l, i) {
+    return '<span class="' + (i + 1 === currentStep ? 'active' : '') + '">' + l + '</span>';
+  }).join('');
+  document.getElementById('fcb-progressSteps').innerHTML = stepsHtml;
+
+  var pct = Math.round(((currentStep - 1) / 7) * 100);
+  document.getElementById('fcb-progressFill').style.width = pct + '%';
+  document.getElementById('fcb-progressText').textContent = 'Step ' + currentStep + ' of 8 \u2014 ' + pct + '% complete';
+}
+
+function validateInfo() {
+  var name = document.getElementById('fcb-userName').value.trim();
+  var email = document.getElementById('fcb-userEmail').value.trim();
+  var msg = document.getElementById('fcb-infoValidation');
+  if (!name || !email || !email.includes('@')) {
+    msg.classList.add('show');
+    return;
+  }
+  msg.classList.remove('show');
+  saveProgress();
+  goToStep(2);
+}
+
+function sgAnswer(qNum, val) {
+  sgAnswers[qNum] = val;
+  var el = document.getElementById('fcb-sgq' + qNum);
+  if (el) el.classList.remove('unanswered');
+  saveProgress();
+}
+
+function validateSGStep(part, start, end, nextStep) {
+  var missing = false;
+  for (var i = start; i < end; i++) {
+    var qNum = i + 1;
+    if (!sgAnswers[qNum]) {
+      var el = document.getElementById('fcb-sgq' + qNum);
+      if (el) el.classList.add('unanswered');
+      missing = true;
+    }
+  }
+  var msg = document.getElementById('fcb-sgVal' + part);
+  if (missing) {
+    msg.classList.add('show');
+    // Scroll to first unanswered
+    var first = $('.unanswered');
+    if (first) first.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  msg.classList.remove('show');
+  goToStep(nextStep);
+}
+
+function discSelect(group, type, itemIdx) {
+  if (!discAnswers[group]) discAnswers[group] = {};
+  discAnswers[group][type] = itemIdx;
+
+  // Prevent same item selected as both Most and Least
+  var other = type === 'most' ? 'least' : 'most';
+  if (discAnswers[group][other] === itemIdx) {
+    discAnswers[group][other] = undefined;
+    var radioName = 'fcb-disc_' + (other === 'most' ? 'm' : 'l') + '_' + group;
+    ROOT.querySelectorAll('input[name="' + radioName + '"]').forEach(function(r) { r.checked = false; });
+  }
+  saveProgress();
+}
+
+function validateDISCStep(part, startG, endG, nextStep) {
+  var missing = false;
+  for (var g = startG; g <= endG; g++) {
+    if (!discAnswers[g] || discAnswers[g].most === undefined || discAnswers[g].least === undefined) {
+      var el = document.getElementById('fcb-discg' + g);
+      if (el) el.classList.add('unanswered');
+      missing = true;
+    } else {
+      var el2 = document.getElementById('fcb-discg' + g);
+      if (el2) el2.classList.remove('unanswered');
+    }
+  }
+  var msg = document.getElementById('fcb-discVal' + part);
+  if (missing) {
+    msg.classList.add('show');
+    var first = $('.disc-group.unanswered');
+    if (first) first.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  msg.classList.remove('show');
+  goToStep(nextStep);
+}
+
+// ============================================================
+// SCORING
+// ============================================================
+function calculateSpiritualGifts() {
+  var scores = {};
+  giftMap.forEach(function(gift, gIdx) {
+    var total = 0;
+    for (var row = 0; row < 8; row++) {
+      var qNum = gIdx + 1 + (row * 23);
+      total += (sgAnswers[qNum] || 0);
+    }
+    scores[gift.key] = {name: gift.name, score: total, word: gift.word, scripture: gift.scripture};
+  });
+  return scores;
+}
+
+function calculateDISC() {
+  var mTotals = {D:0, I:0, S:0, C:0, B:0};
+  var lTotals = {D:0, I:0, S:0, C:0, B:0};
+
+  for (var g = 0; g < 24; g++) {
+    if (!discAnswers[g]) continue;
+    var mostIdx = discAnswers[g].most;
+    var leastIdx = discAnswers[g].least;
+
+    if (mostIdx !== undefined) {
+      var item = discPairs.find(function(p) { return p[0] === g && p[1] === mostIdx; });
+      if (item) {
+        var letter = item[3]; // M letter
+        if (mTotals[letter] !== undefined) mTotals[letter]++;
+      }
+    }
+    if (leastIdx !== undefined) {
+      var item2 = discPairs.find(function(p) { return p[0] === g && p[1] === leastIdx; });
+      if (item2) {
+        var letter2 = item2[4]; // L letter
+        if (lTotals[letter2] !== undefined) lTotals[letter2]++;
+      }
+    }
+  }
+
+  return {m: mTotals, l: lTotals};
+}
+
+function getDISCType(totals) {
+  var D = totals.D, I = totals.I, S = totals.S, C = totals.C;
+  var max = Math.max(D, I, S, C);
+
+  // Get primary and secondary
+  var sorted = Object.entries({D:D, I:I, S:S, C:C}).sort(function(a, b) { return b[1] - a[1]; });
+  return {primary: sorted[0][0], secondary: sorted[1][0], sorted: sorted};
+}
+
+// ============================================================
+// RESULTS
+// ============================================================
+function calculateAndShowResults() {
+  var sgScores = calculateSpiritualGifts();
+  var discScores = calculateDISC();
+
+  // Sort gifts by score
+  var sortedGifts = Object.entries(sgScores)
+    .map(function(entry) { return Object.assign({key: entry[0]}, entry[1]); })
+    .sort(function(a, b) { return b.score - a.score; });
+
+  var top5 = sortedGifts.slice(0, 5);
+  var mType = getDISCType(discScores.m);
+  var lType = getDISCType(discScores.l);
+
+  var userName = document.getElementById('fcb-userName').value.trim();
+
+  var html = '<div class="card" style="text-align:center;padding:32px">' +
+    '<h2>Your Results, ' + userName.split(' ')[0] + '</h2>' +
+    '<p>Here\'s a summary of your unique spiritual gifts and personality profile.</p>' +
+  '</div>';
+
+  // Spiritual Gifts Results
+  html += '<div class="result-card"><h3>\uD83C\uDF81 Your Top Spiritual Gifts</h3>';
+  top5.forEach(function(gift, i) {
+    var pct = Math.round((gift.score / 40) * 100);
+    html += '<div class="gift-result">' +
+      '<div class="gift-rank">' + (i + 1) + '</div>' +
+      '<div class="gift-info">' +
+        '<div class="gift-name">' + gift.name + '</div>' +
+        '<div class="gift-score-text">' + gift.score + ' of 40 \u2014 "' + gift.word + '"</div>' +
+      '</div>' +
+      '<div class="gift-bar-container"><div class="gift-bar"><div class="gift-bar-fill" style="width:' + pct + '%"></div></div></div>' +
+    '</div>';
+  });
+  html += '</div>';
+
+  // Top 3 gift descriptions
+  html += '<div class="result-card"><h3>\uD83D\uDCD6 Understanding Your Top Gifts</h3>';
+  top5.slice(0, 3).forEach(function(gift) {
+    html += '<div style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--fcb-border)">' +
+      '<strong style="color:var(--fcb-white)">' + gift.name + '</strong> ' +
+      '<span class="tag">' + gift.word + '</span>' +
+      '<p style="margin-top:6px">' + giftDescBrief[gift.key] + '</p>' +
+      '<p style="font-size:.8rem;color:var(--fcb-text-muted);margin:4px 0 0">Scripture: ' + gift.scripture + '</p>' +
+    '</div>';
+  });
+  html += '</div>';
+
+  // DISC Results - Graph 1 (M = "Expected of me")
+  var primary = mType.primary;
+  html += '<div class="result-card"><h3>\uD83E\uDDED Your DISC Personality Profile</h3>' +
+    '<p style="margin-bottom:4px"><strong>Graph 1</strong> \u2014 "This is expected of me" (how others see you)</p>' +
+    '<div class="disc-result-grid">';
+  ['D','I','S','C'].forEach(function(letter) {
+    var val = discScores.m[letter];
+    var isHighest = letter === mType.primary;
+    html += '<div class="disc-box ' + (isHighest ? 'highlight' : '') + '">' +
+      '<div class="disc-letter" style="color:' + (isHighest ? 'var(--fcb-red)' : 'var(--fcb-grey-500)') + '">' + letter + '</div>' +
+      '<div class="disc-label">' + discTypes[letter].name + '</div>' +
+      '<div class="disc-score">' + val + '</div>' +
+    '</div>';
+  });
+  html += '</div>' +
+    '<p style="margin:12px 0 4px"><strong>Graph 2</strong> \u2014 "This is me" (how you see yourself under pressure)</p>' +
+    '<div class="disc-result-grid">';
+  ['D','I','S','C'].forEach(function(letter) {
+    var val = discScores.l[letter];
+    var isHighest = letter === lType.primary;
+    html += '<div class="disc-box ' + (isHighest ? 'highlight' : '') + '">' +
+      '<div class="disc-letter" style="color:' + (isHighest ? 'var(--fcb-red)' : 'var(--fcb-grey-500)') + '">' + letter + '</div>' +
+      '<div class="disc-label">' + discTypes[letter].name + '</div>' +
+      '<div class="disc-score">' + val + '</div>' +
+    '</div>';
+  });
+  html += '</div></div>';
+
+  // DISC Description
+  var pDisc = discTypes[primary];
+  html += '<div class="result-card">' +
+    '<h3>\uD83D\uDCCB Your Primary Type: ' + pDisc.full + '</h3>' +
+    '<p>' + pDisc.desc + '</p>' +
+    '<p style="margin-top:8px"><strong>' + pDisc.biblical + '</strong></p>' +
+    '<p style="margin-top:8px;font-style:italic;color:var(--fcb-sage)">' + pDisc.advice + '</p>' +
+  '</div>';
+
+  // Combined Insights
+  html += '<div class="result-card">' +
+    '<h3>\uD83D\uDD17 Your Personality + Gift Combination</h3>' +
+    '<p>As a <strong>"' + primary + '"</strong> personality type with the Gift of <strong>' + top5[0].name + '</strong>, you have a unique blend of natural and supernatural motivations working together.</p>' +
+    '<p style="margin-top:8px">Your ' + discTypes[primary].name.toLowerCase() + ' personality means you tend to be ' + (primary === 'D' ? 'direct, decisive, and task-driven' : primary === 'I' ? 'inspiring, enthusiastic, and people-focused' : primary === 'S' ? 'steady, supportive, and relationship-oriented' : 'careful, analytical, and quality-focused') + '. Combined with your gift of ' + top5[0].name + ', this means you are especially effective at ' + getComboInsight(primary, top5[0].name) + '.</p>' +
+  '</div>';
+
+  // Ministry Suggestions
+  var ministryTags = getMinistryAreas(top5.slice(0,3), primary).map(function(m) {
+    return '<span class="tag" style="font-size:.82rem;padding:5px 12px;margin:3px">' + m + '</span>';
+  }).join('');
+  html += '<div class="result-card">' +
+    '<h3>\u26EA Where You Can Serve at First Church</h3>' +
+    '<p>Based on your spiritual gifts and personality, consider exploring these ministry areas:</p>' +
+    '<div style="margin-top:12px">' + ministryTags + '</div>' +
+    '<p style="margin-top:16px;font-size:.85rem;color:var(--fcb-text-muted)">These are starting points. Pray about where God is calling you, and talk with your pastor about getting involved. Remember: God often calls us to do things we aren\'t naturally gifted to do \u2014 and where He guides, He provides!</p>' +
+  '</div>';
+
+  // Email Section
+  html += '<div class="result-card" style="text-align:center">' +
+    '<h3 style="justify-content:center">\uD83D\uDCE7 Your Results Report</h3>' +
+    '<p>A summary of your results has been prepared. Click below to have it emailed to you.</p>' +
+    '<div class="btn-row" style="justify-content:center;margin-top:16px">' +
+      '<button class="btn btn-primary" onclick="FCB.sendEmail()">Email My Results</button>' +
+      '<button class="btn btn-secondary" onclick="FCB.printResults()">Print Results</button>' +
+    '</div>' +
+    '<div id="fcb-emailStatus"></div>' +
+  '</div>';
+
+  // Store results for email
+  _results = {sgScores: sgScores, discScores: discScores, mType: mType, lType: lType, top5: top5, sortedGifts: sortedGifts, userName: userName,
+    email: document.getElementById('fcb-userEmail').value.trim()};
+
+  document.getElementById('fcb-resultsStep').innerHTML = html;
+  clearSavedProgress();
+  goToStep(9);
+}
+
+function getComboInsight(discType, giftName) {
+  var insights = {
+    D: {
+      "default": "taking charge and driving initiatives forward with your supernatural motivation",
+      "Administration / Ruling": "organizing teams and leading with both natural authority and spiritual conviction",
+      "Leadership": "casting vision and motivating people to action with determination",
+      "Evangelism": "boldly sharing the gospel with a sense of urgency and directness",
+      "Teaching": "presenting truth with authority and challenging others to grow deeper",
+      "Prophecy / Perceiving": "declaring truth fearlessly and confronting issues head-on"
+    },
+    I: {
+      "default": "inspiring and influencing others through your God-given enthusiasm",
+      "Encouraging / Exhorting": "lifting others up with contagious optimism and practical wisdom",
+      "Evangelism": "sharing the gospel naturally through relationships and enthusiastic witness",
+      "Pastor / Shepherding": "leading through warmth, encouragement, and genuine care for people",
+      "Hospitality": "creating welcoming environments where people feel loved and at home",
+      "Teaching": "making truth come alive through engaging, relatable communication"
+    },
+    S: {
+      "default": "faithfully serving behind the scenes with consistency and dedication",
+      "Serving / Ministry": "quietly and steadily meeting needs without seeking recognition",
+      "Intercession": "praying faithfully and consistently for others with deep devotion",
+      "Showing Mercy": "providing tender, patient care to those who are hurting",
+      "Hospitality": "creating warm, comfortable spaces where people feel safe and welcomed",
+      "Pastor / Shepherding": "gently guiding and nurturing others toward spiritual maturity"
+    },
+    C: {
+      "default": "bringing careful analysis and excellence to your area of spiritual motivation",
+      "Teaching": "researching deeply and presenting truth with precision and clarity",
+      "Knowledge": "discovering and sharing biblical insights with accuracy and depth",
+      "Discernment": "carefully analyzing situations to distinguish truth from error",
+      "Administration / Ruling": "creating organized systems and processes that serve the body well",
+      "Wisdom": "providing thoughtful, well-considered counsel grounded in Scripture"
+    }
+  };
+
+  var typeInsights = insights[discType] || insights.D;
+  return typeInsights[giftName] || typeInsights["default"];
+}
+
+function getMinistryAreas(topGifts, discType) {
+  var ministryMap = {
+    A: ["Church Leadership","Committee Chair","Event Planning","Team Coordination","Personnel"],
+    B: ["Missions","Church Planting","Evangelism","Discipleship","Cross-Cultural Ministry"],
+    C: ["Construction","Set Design","Crafts Ministry","Maintenance","Hands-on Projects"],
+    D: ["Drama Ministry","Worship Arts","Media/Video","Creative Writing","Communications"],
+    E: ["Counseling","Prayer Ministry","Personnel","Finance Committee","Advisory Roles"],
+    F: ["Counseling","Small Groups","Encouragement Ministry","Crisis Support","Mentoring"],
+    G: ["Outreach","Visitation","Missions","Altar Ministry","Community Events"],
+    H: ["Prayer Ministry","Counseling","Finance","Mission Support","Hospital Visits"],
+    I: ["Finance Committee","Benevolence","Budget Planning","Stewardship Ministry"],
+    J: ["Prayer Ministry","Hospital Visits","Healing Services","Counseling","Shut-in Ministry"],
+    K: ["Nursery","Ushering","Sunday School Support","Setup/Teardown","Behind-the-Scenes Service"],
+    L: ["Greeting Ministry","Hospitality Team","Small Group Hosting","Welcome Ministry","Meals Ministry"],
+    M: ["Intercessory Prayer","Prayer Chain","Prayer Room Ministry","Hospital Visits"],
+    N: ["Worship Team Support","Prayer Ministry","Counseling","Encouragement"],
+    O: ["Teaching","Counseling","Book Store Ministry","Library","Research"],
+    P: ["Men's/Women's Ministry","Discipleship Groups","Leadership Development","Coaching"],
+    Q: ["Hospital Visits","Benevolence","Child Care","Counseling","Shut-in Ministry"],
+    R: ["Prayer Ministry","Evangelism","Hospital Ministry","Encouragement"],
+    S: ["Community Outreach","Truth Speaking","Accountability","Prophetic Ministry"],
+    T: ["Small Group Leadership","Discipleship","Mentoring","New Believer Care","Visitation"],
+    U: ["Prayer Ministry","Worship","Counseling","Encouragement"],
+    V: ["Teaching Ministry","Bible Studies","Training","Curriculum Development","Library"],
+    W: ["Counseling","Advisory Roles","Finance","Prayer Ministry","Mediation"]
+  };
+
+  var areas = new Set();
+  topGifts.forEach(function(g) {
+    var list = ministryMap[g.key] || [];
+    list.slice(0, 3).forEach(function(m) { areas.add(m); });
+  });
+
+  // Add personality-based suggestions
+  var discAreas = {
+    D: ["Leadership Roles","Steering Committees","Project Management"],
+    I: ["Public Speaking","Drama","Social Events","Welcome Team"],
+    S: ["Support Roles","Behind-the-Scenes","One-on-One Ministry"],
+    C: ["Finance","Research","Quality Assurance","Record Keeping"]
+  };
+  (discAreas[discType] || []).slice(0, 2).forEach(function(m) { areas.add(m); });
+
+  return Array.from(areas).slice(0, 12);
+}
+
+// ============================================================
+// EMAIL (EmailJS Integration Point)
+// ============================================================
+function sendEmail() {
+  var statusEl = document.getElementById('fcb-emailStatus');
+  var r = _results;
+
+  // Not configured - show friendly fallback
+  if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+    statusEl.innerHTML = '<div class="email-status info">' +
+      '<strong>Email service is being set up.</strong><br>' +
+      'In the meantime, please print your results using the Print button.' +
+    '</div>';
+    return;
+  }
+
+  // SDK still loading
+  if (!_emailjsReady) {
+    statusEl.innerHTML = '<div class="email-status info">Loading email service, please try again in a moment...</div>';
+    return;
+  }
+
+  statusEl.innerHTML = '<div class="email-status info">Sending your results...</div>';
+
+  var summaryText = buildSummaryEmail(r);
+  var detailedText = buildDetailedEmail(r);
+
+  // Send summary to congregant, then detailed report to pastor
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_CONGREGANT, {
+    to_name: r.userName,
+    to_email: r.email,
+    subject: 'Your Spiritual Gifts & Personality Results \u2014 First Church Bellevue',
+    message: summaryText
+  }).then(function() {
+    return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_PASTOR, {
+      to_email: PASTOR_EMAIL,
+      member_name: r.userName,
+      member_email: r.email,
+      subject: 'Assessment Results: ' + r.userName,
+      message: detailedText
+    });
+  }).then(function() {
+    statusEl.innerHTML = '<div class="email-status success">\u2713 Results emailed successfully! Check your inbox.</div>';
+  }).catch(function(err) {
+    console.error('EmailJS error:', err);
+    statusEl.innerHTML = '<div class="email-status error">There was an issue sending the email. Please use the Print button to save your results.</div>';
+  });
+}
+
+function buildSummaryEmail(r) {
+  var text = 'SPIRITUAL GIFTS & PERSONALITY RESULTS\nFirst Church Bellevue\nfor ' + r.userName + '\n' + '='.repeat(40) + '\n\n';
+  text += 'YOUR TOP 5 SPIRITUAL GIFTS:\n';
+  r.top5.forEach(function(g, i) {
+    text += (i+1) + '. ' + g.name + ' (Score: ' + g.score + '/40) \u2014 "' + g.word + '"\n';
+    if (i < 3) text += '   ' + giftDescBrief[g.key] + '\n\n';
+  });
+  text += '\nYOUR DISC PERSONALITY TYPE:\n';
+  text += 'Primary: ' + discTypes[r.mType.primary].full + '\n';
+  text += discTypes[r.mType.primary].desc + '\n\n';
+  text += 'BIBLICAL ADVICE:\n' + discTypes[r.mType.primary].advice + '\n\n';
+  text += 'We encourage you to speak with your pastor about how to use your gifts in ministry at First Church!';
+  return text;
+}
+
+function buildDetailedEmail(r) {
+  var text = 'DETAILED ASSESSMENT RESULTS \u2014 First Church Bellevue\nMember: ' + r.userName + ' (' + r.email + ')\n' + '='.repeat(50) + '\n\n';
+  text += 'ALL 23 SPIRITUAL GIFT SCORES:\n';
+  r.sortedGifts.forEach(function(g) {
+    text += g.name + ': ' + g.score + '/40\n';
+  });
+  text += '\nTOP 3 GIFT DESCRIPTIONS:\n';
+  r.top5.slice(0, 3).forEach(function(g) {
+    text += '\n--- ' + g.name + ' ---\n' + giftDescFull[g.key] + '\n';
+  });
+  text += '\n' + '='.repeat(50) + '\nDISC RESULTS:\n';
+  text += '\nGraph 1 (Expected): D=' + r.discScores.m.D + ' I=' + r.discScores.m.I + ' S=' + r.discScores.m.S + ' C=' + r.discScores.m.C + '\n';
+  text += 'Graph 2 (Under Pressure): D=' + r.discScores.l.D + ' I=' + r.discScores.l.I + ' S=' + r.discScores.l.S + ' C=' + r.discScores.l.C + '\n';
+  text += '\nPrimary Type (G1): ' + discTypes[r.mType.primary].full + '\n';
+  text += 'Primary Type (G2): ' + discTypes[r.lType.primary].full + '\n';
+  text += '\n' + discTypes[r.mType.primary].desc + '\n';
+  return text;
+}
+
+// ============================================================
+// PRINT (opens new window to avoid printing Tithe.ly page)
+// ============================================================
+function printResults() {
+  var resultsHtml = document.getElementById('fcb-resultsStep').innerHTML;
+  var printWin = window.open('', '_blank');
+  printWin.document.write('<!DOCTYPE html><html><head>' +
+    '<meta charset="UTF-8">' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+    '<title>Assessment Results \u2014 First Church Bellevue</title>' +
+    '<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">' +
+    '<style>' +
+      'body{font-family:"Montserrat",sans-serif;max-width:820px;margin:0 auto;padding:20px;color:#222;line-height:1.65}' +
+      'h2,h3,h4{color:#222;margin-bottom:8px}' +
+      '.result-card{background:#fff;border-radius:10px;padding:24px;border:1px solid #ddd;margin-bottom:16px}' +
+      '.result-card h3{font-size:1.1rem;display:flex;align-items:center;gap:8px;margin-bottom:12px}' +
+      '.result-card p{font-size:.88rem;line-height:1.7;color:#444}' +
+      '.gift-result{display:flex;align-items:center;gap:14px;padding:14px;background:#f9f9f9;border-radius:10px;margin-bottom:8px;border:1px solid #ddd}' +
+      '.gift-rank{width:34px;height:34px;background:#c41e2a;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0}' +
+      '.gift-info{flex:1}.gift-name{font-weight:700;font-size:.9rem}.gift-score-text{font-size:.72rem;color:#777}' +
+      '.gift-bar-container{flex:0 0 110px}.gift-bar{height:6px;background:#ddd;border-radius:3px;overflow:hidden}' +
+      '.gift-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,#9e1821,#c41e2a)}' +
+      '.disc-result-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}' +
+      '.disc-box{padding:18px;border-radius:10px;text-align:center;border:2px solid #ddd;background:#f9f9f9}' +
+      '.disc-box.highlight{border-color:#c41e2a;background:rgba(196,30,42,.08)}' +
+      '.disc-letter{font-size:1.8rem;font-weight:800}.disc-label{font-size:.72rem;color:#777;margin-top:2px;text-transform:uppercase}' +
+      '.disc-score{font-size:1rem;font-weight:700;margin-top:4px}' +
+      '.tag{display:inline-block;padding:3px 10px;background:rgba(196,30,42,.08);border:1px solid rgba(196,30,42,.2);border-radius:12px;font-size:.72rem;font-weight:600;color:#c41e2a;margin-right:4px;margin-bottom:4px}' +
+      '.btn-row{display:none}' +
+      '@media print{.no-print{display:none}}' +
+    '</style>' +
+  '</head><body>' +
+    '<h2 style="text-align:center;margin-bottom:4px">Membership & Ministry Profile Results</h2>' +
+    '<p style="text-align:center;color:#777;font-size:.85rem;margin-bottom:20px">First Church Bellevue \u2014 Seeking First the Kingdom of God</p>' +
+    resultsHtml +
+  '</body></html>');
+  printWin.document.close();
+  printWin.focus();
+  setTimeout(function() { printWin.print(); }, 500);
+}
+
+// ============================================================
+// Expose functions for inline event handlers
+// ============================================================
+window.FCB = {
+  goToStep: goToStep,
+  validateInfo: validateInfo,
+  sgAnswer: sgAnswer,
+  validateSGStep: validateSGStep,
+  discSelect: discSelect,
+  validateDISCStep: validateDISCStep,
+  sendEmail: sendEmail,
+  printResults: printResults,
+  resumeProgress: resumeProgress,
+  startFresh: startFresh
+};
+
+// Init on load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
+
+})();
+</script>
+</body>
+</html>
